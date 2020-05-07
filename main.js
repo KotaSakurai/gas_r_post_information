@@ -48,14 +48,12 @@ function doPost(e) {
   } else {
     appendRow(sheet, e.parameter);
     return ContentService.createTextOutput(JSON.stringify({ status: 200, message: "success" }, null, 2))
-    .setMimeType(ContentService.MimeType.JSON);
+      .setMimeType(ContentService.MimeType.JSON);
   }
 }
 
 
 function getData(sheetName) {
-  var sheet = SpreadsheetApp.getActive().getSheetByName(sheetName);
-
   var col = "D";
   var sh = SpreadsheetApp.getActiveSheet();
   var last_row = sh.getLastRow();
@@ -70,6 +68,7 @@ function getData(sheetName) {
     }
   }
   Logger.log(index);
+
   if (index == 0) {
     obj = { status: 404, message: "NOT FOUND" };
     return obj;
@@ -88,5 +87,5 @@ function getData(sheetName) {
 function doGet() {
   var data = getData('投稿情報');
   return ContentService.createTextOutput(JSON.stringify(data, null, 2))
-  .setMimeType(ContentService.MimeType.JSON);
+    .setMimeType(ContentService.MimeType.JSON);
 }
