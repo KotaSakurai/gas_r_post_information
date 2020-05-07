@@ -23,3 +23,11 @@ ex.
 
 # ref
 https://qiita.com/ume3003/items/cd9d05dff014952a73f8
+
+# Make local
+
+`.clasp.json`
+
+```
+{"scriptId":"XXXXX"}
+```
